@@ -8,17 +8,20 @@ import org.openqa.selenium.support.PageFactory;
 public class AuthorizationPage {
     private WebDriver driver;
 
-    @FindBy(xpath="//form[@id='login_form']//div[@class='form-group']//input[@name='email']")
+    @FindBy(xpath = "//form[@id='login_form']//div[@class='form-group']//input[@name='email']")
     public WebElement emailTF;
 
-    @FindBy(xpath="//form[@id='login_form']//div[@class='form-group']//input[@name='passwd']")
+    @FindBy(xpath = "//form[@id='login_form']//div[@class='form-group']//input[@name='passwd']")
     public WebElement passwordTF;
 
-    @FindBy(xpath="//form[@id='login_form']//div[@class='form-group row-padding-top']//button[@name='submitLogin']")
+    @FindBy(xpath = "//form[@id='login_form']//div[@class='form-group row-padding-top']//button[@name='submitLogin']")
     public WebElement logInBtn;
 
-    @FindBy(xpath="//input[@id='stay_logged_in']")
+    @FindBy(xpath = "//input[@id='stay_logged_in']")
     public WebElement rememberMeCheckbox;
+
+    @FindBy(xpath = "//h4[@id='shop_name']")
+    public WebElement title;
 
     public AuthorizationPage(WebDriver driver){
         this.driver = driver;
