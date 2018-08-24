@@ -7,20 +7,12 @@ import pages.MainUserPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class Tests_HomeTask1 {
-    private WebDriver driver;
+public class Tests_HomeTask1 extends BaseTest{
     private AuthorizationPage authorizationPage;
     private MainUserPage userPage;
-    private String driverPath = Tests_HomeTask1.class.getResource("chromedriver.exe").getPath();
-    private String baseUrl = "http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/";
 
     @BeforeMethod
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", driverPath);
-        driver = new ChromeDriver();
-        driver.get(baseUrl);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         authorizationPage = new AuthorizationPage(driver);
         userPage = new MainUserPage(driver);
     }
@@ -68,11 +60,5 @@ public class Tests_HomeTask1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void close() {
-        driver.close();
-        driver.quit();
     }
 }
