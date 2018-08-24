@@ -30,7 +30,7 @@ public class SideBar {
         SideBarItem item = null;
         for (SideBarItem component: items){
             if (component.getItem().getAttribute("id").equals(id)){
-                item =  component;
+                item = component;
                 break;
             }
         }

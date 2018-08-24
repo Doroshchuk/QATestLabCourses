@@ -1,22 +1,7 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import pages.AuthorizationPage;
-import pages.MainUserPage;
-
-import java.util.concurrent.TimeUnit;
 
 public class Tests_HomeTask1 extends BaseTest{
-    private AuthorizationPage authorizationPage;
-    private MainUserPage userPage;
-
-    @BeforeMethod
-    public void setUp() {
-        authorizationPage = new AuthorizationPage(driver);
-        userPage = new MainUserPage(driver);
-    }
-
     @Test(priority = 0)
     public void testAuthenticationAndLogOut() {
         authorizationPage.signInToAccount("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
@@ -54,7 +39,7 @@ public class Tests_HomeTask1 extends BaseTest{
         Assert.assertTrue(result);
     }
 
-    public void sleep(long millis) {
+    public static void sleep(long millis) {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {

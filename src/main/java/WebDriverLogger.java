@@ -10,30 +10,32 @@ public class WebDriverLogger extends AbstractWebDriverEventListener {
 
     @Override
     public void beforeNavigateTo(String url, WebDriver driver){
-        LOGGER.info("WebDriver navigated to '" + url + "'");
+        //LOGGER.info("WebDriver navigated to '" + url + "'");
+        System.out.println("WebDriver navigated to '" + url + "'");
     }
 
     @Override
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-        LOGGER.info("WebDriver searched webElement - " + elementDescription(element)
-                + " using locator '" + by + "'");
+        //LOGGER.info("WebDriver searched webElement - " + elementDescription(element) + " using locator '" + by + "'");
+        System.out.println("WebDriver searched webElement - " + elementDescription(element) + " using locator '" + by + "'");
     }
 
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
-        LOGGER.info("WebDriver click on element - " + elementDescription(element));
+        //LOGGER.info("WebDriver click on element - " + elementDescription(element));
+        System.out.println("WebDriver click on element - " + elementDescription(element));
     }
 
     @Override
     public void beforeChangeValueOf(WebElement element, WebDriver driver) {
-        LOGGER.info("WebDriver will change value for element - "
-                + elementDescription(element));
+        //LOGGER.info("WebDriver will change value for element - " + elementDescription(element));
+        System.out.println("WebDriver will change value for element - " + elementDescription(element));
     }
 
     @Override
     public void afterChangeValueOf(WebElement element, WebDriver driver) {
-        LOGGER.info("WebDriver changed value for element - "
-                + elementDescription(element));
+        //LOGGER.info("WebDriver changed value for element - " + elementDescription(element));
+        System.out.println("WebDriver changed value for element - " + elementDescription(element));
     }
 
     private String elementDescription(WebElement element) {
