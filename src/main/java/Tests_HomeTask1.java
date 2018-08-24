@@ -7,11 +7,11 @@ import pages.MainUserPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class Tests {
+public class Tests_HomeTask1 {
     private WebDriver driver;
     private AuthorizationPage authorizationPage;
     private MainUserPage userPage;
-    private String driverPath = Tests.class.getResource("chromedriver.exe").getPath();
+    private String driverPath = Tests_HomeTask1.class.getResource("chromedriver.exe").getPath();
     private String baseUrl = "http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/";
 
     @BeforeMethod
