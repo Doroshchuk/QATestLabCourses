@@ -73,5 +73,6 @@ public class Tests {
     @AfterMethod(alwaysRun = true)
     public void close() {
         driver.close();
+        driver.quit();
     }
 }
