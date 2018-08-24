@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95937d4f-5a45-4128-990a-61740d81affa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pages/CategoriesManagerPage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pages/SearchResultPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pages/userPageComponents/SideBarItem.class" afterPath="$PROJECT_DIR$/target/classes/pages/userPageComponents/SideBarItem.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/BaseTest.java" afterPath="$PROJECT_DIR$/src/main/java/BaseTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Tests_HomeTask2.java" afterPath="$PROJECT_DIR$/src/main/java/Tests_HomeTask2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/CategoryPage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/CategoryPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/userPageComponents/SideBarItem.java" afterPath="$PROJECT_DIR$/src/main/java/pages/userPageComponents/SideBarItem.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -450,7 +445,7 @@
       <workItem from="1534674836764" duration="5098000" />
       <workItem from="1534680453388" duration="6064000" />
       <workItem from="1535097263095" duration="12684000" />
-      <workItem from="1535143239091" duration="6031000" />
+      <workItem from="1535143239091" duration="6355000" />
     </task>
     <task id="LOCAL-00001" summary="modified close test">
       <created>1535097715742</created>
@@ -480,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535114114226</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="created CategoriesManagerPage, SearchResultPage">
+      <created>1535149992872</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1535149992872</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -516,7 +518,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34086000" />
+    <option name="totallyTimeSpent" value="34410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -563,7 +565,8 @@
     <MESSAGE value="created WebDriverLogger" />
     <MESSAGE value="created BaseTest to reduce repeated code" />
     <MESSAGE value="created CategoryPage, TestHelper" />
-    <option name="LAST_COMMIT_MESSAGE" value="created CategoryPage, TestHelper" />
+    <MESSAGE value="created CategoriesManagerPage, SearchResultPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="created CategoriesManagerPage, SearchResultPage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
