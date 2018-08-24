@@ -2,21 +2,27 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.userPageComponents.SideBar;
 
 public class CategoryPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//a[@id='page-header-desc-category-new_category']")
-    public WebElement addCategoryBtn;
+    @FindBy(xpath = "//input[@name='name_1']")
+    public WebElement categoryNameTF;
 
-    @FindBy(xpath = "//h2")
-    public WebElement title;
+    @FindBy(xpath = "//button[@id='category_form_submit_btn']")
+    public WebElement saveBtn;
 
     public CategoryPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public void createNewCategory(String name){
+        categoryNameTF.sendKeys(name);
+        Actions action = new Actions(driver);
+        action.moveToElement(saveBtn).click().build().perform();
     }
 }

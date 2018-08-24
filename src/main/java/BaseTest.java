@@ -25,7 +25,6 @@ public class BaseTest {
         authorizationPage = new AuthorizationPage(driver);
         userPage = new MainUserPage(driver);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterMethod(alwaysRun = true)

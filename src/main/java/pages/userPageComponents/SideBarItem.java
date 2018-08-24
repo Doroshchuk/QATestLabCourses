@@ -41,8 +41,6 @@ public class SideBarItem {
 
     public void chooseSubMenuItemById(String id){
         TestHelper.ClickOnElementUsingJS(driver, getSubMenuItem(id));
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
-        executor.executeScript("arguments[0].click();", getSubMenuItem(id));
     }
 
     public boolean checkItemIntoSideBar(){
