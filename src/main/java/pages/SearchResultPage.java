@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SearchResultPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//h2[@class='page-title']")
+    @FindBy(xpath = "//div[@class='col-lg-12']//h2")
     public WebElement resultTitle;
 
     public SearchResultPage(WebDriver driver){

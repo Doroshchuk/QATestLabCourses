@@ -26,12 +26,12 @@ public class Tests_HomeTask2 extends BaseTest {
         TestHelper.ClickOnElementUsingJS(driver, categoriesManagerPage.addCategoryBtn);
         categoryPage = new CategoryPage(driver);
         wait.until(ExpectedConditions.elementToBeClickable(categoryPage.categoryNameTF));
-        categoryPage.createNewCategory("TestCategory");
+        categoryPage.createNewCategory("TestCategoryNewVersion3");
         wait.until(ExpectedConditions.textToBePresentInElement(categoriesManagerPage.title, "категории"));
         Assert.assertTrue(categoriesManagerPage.messageBlock.getText().contains("Создано"));
-        categoriesManagerPage.findCategoryByName("TestCategory");
+        categoriesManagerPage.findCategoryByName("TestCategoryNewVersion3");
         searchResultPage = new SearchResultPage(driver);
         wait.until(ExpectedConditions.visibilityOf(searchResultPage.resultTitle));
-        Assert.assertEquals(searchResultPage.resultTitle.getText(), "Запросу \"TestCategory\" соответствует 1 результат.");
+        Assert.assertEquals(searchResultPage.resultTitle.getText(), "Запросу \"TestCategoryNewVersion3\" соответствует 1 результат.");
     }
 }

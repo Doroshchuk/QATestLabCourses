@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.userPageComponents.SideBar;
 
 public class CategoriesManagerPage {
     private WebDriver driver;
@@ -29,6 +28,6 @@ public class CategoriesManagerPage {
 
     public void findCategoryByName(String name){
         searchBoxTF.sendKeys(name);
-        searchBoxTF.sendKeys(Keys.ENTER);
+        searchBoxTF.submit();
     }
 }
