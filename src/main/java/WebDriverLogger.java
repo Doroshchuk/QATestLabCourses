@@ -10,19 +10,19 @@ public class WebDriverLogger extends AbstractWebDriverEventListener {
 
     @Override
     public void beforeNavigateTo(String url, WebDriver driver){
-        LOGGER.info("WebDriver navigated to '" + url + "'");
+        //LOGGER.info("WebDriver navigated to '" + url + "'");
         System.out.println("WebDriver navigated to '" + url + "'");
     }
 
     @Override
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-        LOGGER.info("WebDriver searched webElement - " + " using locator '" + by + "'");
+        //LOGGER.info("WebDriver searched webElement - " + " using locator '" + by + "'");
         System.out.println("WebDriver searched webElement - " + " using locator '" + by + "'");
     }
 
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
-        LOGGER.info("WebDriver click on element - " + elementDescription(element));
+        //LOGGER.info("WebDriver click on element - " + elementDescription(element));
         System.out.println("WebDriver click on element - " + elementDescription(element));
     }
 
@@ -33,7 +33,7 @@ public class WebDriverLogger extends AbstractWebDriverEventListener {
             for (CharSequence ch : keysToSend){
                 value.append(ch);
             }
-        LOGGER.info("WebDriver will change value " + value + " for element - " + elementDescription(element));
+        //LOGGER.info("WebDriver will change value " + value + " for element - " + elementDescription(element));
         System.out.println("WebDriver will change value " + value + " for element - " + elementDescription(element));
     }
 
@@ -44,7 +44,7 @@ public class WebDriverLogger extends AbstractWebDriverEventListener {
             for (CharSequence ch : keysToSend){
                 value.append(ch);
             }
-        LOGGER.info("WebDriver changed value " + value + " for element - " + elementDescription(element));
+        //LOGGER.info("WebDriver changed value " + value + " for element - " + elementDescription(element));
         System.out.println("WebDriver changed value " + value + " for element - " + elementDescription(element));
     }
 
