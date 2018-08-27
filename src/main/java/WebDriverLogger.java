@@ -56,9 +56,7 @@ public class WebDriverLogger extends AbstractWebDriverEventListener {
         else if (element.getAttribute("name") != null) {
             description += " name: " + element.getAttribute("name");
         }
-
         description += " ('" + element.getText() + "')";
-
         return description;
     }
 }
