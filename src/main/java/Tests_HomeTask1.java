@@ -1,8 +1,10 @@
 import org.testng.Assert;
 import org.testng.annotations.*;
+import pages.userPageComponents.SideBar;
 
 public class Tests_HomeTask1 extends BaseTest {
-    @Test(priority = 0)
+
+        @Test(priority = 0)
     public void testAuthenticationAndLogOut() {
         authorizationPage.signInToAccount("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
         sleep(300);
@@ -13,7 +15,6 @@ public class Tests_HomeTask1 extends BaseTest {
 
     @DataProvider(name = "SideBarItemTest")
     public static Object[][] credentials() {
-
         return new Object[][] {
                 { "tab-AdminDashboard" },
                 { "subtab-AdminParentOrders" },

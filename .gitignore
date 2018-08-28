@@ -76,9 +76,9 @@ hs_err_pid*
 
 Selenium.iml
 
-target
+.target
 
-.idea//
+.idea
 
 .xml
 
