@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 public class CategoryPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//input[@name='name_1']")
+    @FindBy(css = "input[name='name_1']")
     public WebElement categoryNameTF;
 
-    @FindBy(xpath = "//button[@id='category_form_submit_btn']")
+    @FindBy(css = "button[id='category_form_submit_btn']")
     public WebElement saveBtn;
 
     public CategoryPage(WebDriver driver){

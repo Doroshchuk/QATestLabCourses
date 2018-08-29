@@ -8,13 +8,14 @@ import pages.SearchResultPage;
 import testHelper.TestHelper;
 
 public class Tests_HomeTask2 extends BaseTest {
-    private WebDriverWait wait = new WebDriverWait(driver, 20);;
+    private WebDriverWait wait;
     private CategoriesManagerPage categoriesManagerPage;
     private CategoryPage categoryPage;
     private SearchResultPage searchResultPage;
 
     @Test(priority = 0)
     public void testCreatingCategory() {
+        wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(authorizationPage.logInBtn));
         authorizationPage.signInToAccount("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
         wait.until(ExpectedConditions.visibilityOf(userPage.userImg));
@@ -32,6 +33,7 @@ public class Tests_HomeTask2 extends BaseTest {
 
     @Test(priority = 1)
     public void testFindingCategory() {
+        wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(authorizationPage.logInBtn));
         authorizationPage.signInToAccount("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
         wait.until(ExpectedConditions.visibilityOf(userPage.userImg));

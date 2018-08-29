@@ -8,19 +8,19 @@ import org.openqa.selenium.support.PageFactory;
 public class AuthorizationPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//input[@name='email']")
+    @FindBy(css = "input[name='email']")
     public WebElement emailTF;
 
-    @FindBy(xpath = "//input[@name='passwd']")
+    @FindBy(css = "input[name='passwd']")
     public WebElement passwordTF;
 
-    @FindBy(xpath = "//button[@name='submitLogin']")
+    @FindBy(css = "button[name='submitLogin']")
     public WebElement logInBtn;
 
-    @FindBy(xpath = "//input[@id='stay_logged_in']")
+    @FindBy(css = "input[id='stay_logged_in']")
     public WebElement rememberMeCheckbox;
 
-    @FindBy(xpath = "//h4[@id='shop_name']")
+    @FindBy(css = "h4[id='shop_name']")
     public WebElement title;
 
     public AuthorizationPage(WebDriver driver){

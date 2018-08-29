@@ -9,14 +9,22 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SideBarItem {
     private WebDriver driver;
-    private String id;
+    public String id;
 
     public WebElement getItem(){
-        return driver.findElement(By.xpath("//li[@id='" + id + "']"));
+        return driver.findElement(By.id(id));
     }
 
     public WebElement getSubMenuItem(String id){
-        return getItem().findElement(By.xpath("//ul[@class='submenu']//li[@id='" + id + "']//a"));
+        return driver.findElement(By.xpath("//ul[@class='submenu']//li[@id='" + id + "']//a"));
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public SideBarItem(WebDriver driver, String id){

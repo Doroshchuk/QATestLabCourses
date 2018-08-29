@@ -1,3 +1,4 @@
+import jdk.nashorn.internal.objects.annotations.Function;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.userPageComponents.SideBar;
@@ -14,22 +15,8 @@ public class Tests_HomeTask1 extends BaseTest {
     }
 
     @DataProvider(name = "SideBarItemTest")
-    public static Object[][] credentials() {
-        return new Object[][] {
-                { "tab-AdminDashboard" },
-                { "subtab-AdminParentOrders" },
-                { "subtab-AdminCatalog" },
-                { "subtab-AdminParentCustomer" },
-                { "subtab-AdminParentCustomerThreads" },
-                { "subtab-AdminStats" },
-                { "subtab-AdminParentModulesSf" },
-                { "subtab-AdminParentThemes" },
-                { "subtab-AdminParentShipping" },
-                { "subtab-AdminParentPayment" },
-                { "subtab-AdminInternational" },
-                { "subtab-ShopParameters" },
-                { "subtab-AdminAdvancedParameters" }
-        };
+    public static Object[] credentials() {
+        return SideBar.ids.toArray();
     }
 
     @Test(priority = 1, dataProvider = "SideBarItemTest")
