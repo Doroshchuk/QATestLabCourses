@@ -5,7 +5,7 @@ import pages.userPageComponents.SideBar;
 
 public class Tests_HomeTask1 extends BaseTest {
 
-        @Test(priority = 0)
+    @Test(priority = 0)
     public void testAuthenticationAndLogOut() {
         authorizationPage.signInToAccount("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
         sleep(300);
