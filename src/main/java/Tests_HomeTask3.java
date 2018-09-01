@@ -1,3 +1,4 @@
+import models.Product;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -14,6 +15,7 @@ public class Tests_HomeTask3 extends BaseTest{
     private MainUserPage userPage;
     private ProductsManagerPage productsManagerPage;
     private ProductPage productPage;
+    private Product product;
 
     @BeforeClass
     public void initialize(){
@@ -39,6 +41,6 @@ public class Tests_HomeTask3 extends BaseTest{
         wait.until(ExpectedConditions.elementToBeClickable(productsManagerPage.addProductBtn));
         productsManagerPage.addProductBtn.click();
         wait.until(ExpectedConditions.visibilityOf(productPage.productNameTF));
-        productPage.createNewProduct();
+        product = productPage.createNewProduct();
     }
 }

@@ -9,4 +9,9 @@ public class TestHelper {
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);
     }
+
+    public static void insertValueIntoTF(WebElement field, String value){
+        field.clear();
+        field.sendKeys(value);
+    }
 }
