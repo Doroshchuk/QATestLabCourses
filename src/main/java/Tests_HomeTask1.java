@@ -1,9 +1,18 @@
 import jdk.nashorn.internal.objects.annotations.Function;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import pages.*;
 import pages.userPageComponents.SideBar;
 
 public class Tests_HomeTask1 extends BaseTest {
+    private AuthorizationPage authorizationPage;
+    private MainUserPage userPage;
+
+    @BeforeClass
+    public void initialize(){
+        authorizationPage = new AuthorizationPage(driver);
+        userPage = new MainUserPage(driver);
+    }
 
     @Test(priority = 0)
     public void testAuthenticationAndLogOut() {

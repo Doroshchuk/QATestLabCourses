@@ -7,7 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.nio.charset.Charset;
+import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.Random;
 
 public class ProductPage {
@@ -45,9 +46,9 @@ public class ProductPage {
     }
 
     public void createNewProduct(){
-        productNameTF.sendKeys(getRandomProductName());
+        productNameTF.sendKeys(getRandomProductName(10));
         productQuantityTF.sendKeys(String.valueOf(getRandomProductQuantity()));
-        productPriceWithoutNSD_TF.sendKeys(String.valueOf(getRandomProductPrice()));
+        productPriceWithoutNSD_TF.sendKeys(getRandomProductPrice());
         productNetworkCheckbox.click();
         wait.until(ExpectedConditions.visibilityOf(networkMessageBlock));
         closeNetworkMessageBtn.click();
@@ -56,17 +57,28 @@ public class ProductPage {
         closeNetworkMessageBtn.click();
     }
 
-    private String getRandomProductName(){
-        byte[] array = new byte[7]; // length is bounded by 7
-        new Random().nextBytes(array);
-        return new String(array, Charset.forName("UTF-8"));
+    private String getRandomProductName(int length){
+        Random random = new Random();
+        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String lower = upper.toLowerCase(Locale.ROOT);
+        char[] symbols = (upper + lower).toCharArray();
+        char[] buf = new char[length];
+        return nextString(buf, random, symbols);
+    }
+
+    public String nextString(char[] buf, Random random, char[] symbols) {
+        for (int idx = 0; idx < buf.length; ++idx)
+            buf[idx] = symbols[random.nextInt(symbols.length)];
+        return new String(buf);
     }
 
     private int getRandomProductQuantity(){
         return (int)(Math.random() * 100 + 1);
     }
 
-    private double getRandomProductPrice(){
-        return 0.1 + (100 - 0.1) * new Random().nextDouble();
+    private String getRandomProductPrice(){
+        double result = 0.1 + (100 - 0.1) * new Random().nextDouble();
+        DecimalFormat f = new DecimalFormat("##.00");
+        return f.format(result);
     }
 }
