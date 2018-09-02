@@ -1,4 +1,4 @@
-package pages.userPageComponents;
+package pages.admin.userPageComponents;
 
 import org.openqa.selenium.WebDriver;
 import java.util.*;

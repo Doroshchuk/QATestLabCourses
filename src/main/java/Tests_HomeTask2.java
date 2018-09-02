@@ -1,9 +1,8 @@
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.*;
+import pages.admin.*;
 import testHelper.TestHelper;
 
 public class Tests_HomeTask2 extends BaseTest {

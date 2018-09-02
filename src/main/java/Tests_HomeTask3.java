@@ -1,29 +1,35 @@
 import models.Product;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.AuthorizationPage;
-import pages.MainUserPage;
-import pages.ProductPage;
-import pages.ProductsManagerPage;
+import pages.admin.AuthorizationPage;
+import pages.admin.MainUserPage;
+import pages.admin.ProductPage;
+import pages.admin.ProductsManagerPage;
+import pages.shop.ShopMainPage;
+import testHelper.TestHelper;
+
+import java.util.Iterator;
+import java.util.Set;
 
 public class Tests_HomeTask3 extends BaseTest{
-    private WebDriverWait wait;
     private AuthorizationPage authorizationPage;
     private MainUserPage userPage;
     private ProductsManagerPage productsManagerPage;
     private ProductPage productPage;
     private Product product;
+    private ShopMainPage shopMainPage;
 
     @BeforeClass
     public void initialize(){
-        wait = new WebDriverWait(driver, 20);
         authorizationPage = new AuthorizationPage(driver);
         userPage = new MainUserPage(driver);
         productsManagerPage = new ProductsManagerPage(driver);
         productPage = new ProductPage(driver);
+        shopMainPage = new ShopMainPage(driver);
     }
 
     @DataProvider(name = "AuthorizationData")
@@ -42,5 +48,12 @@ public class Tests_HomeTask3 extends BaseTest{
         productsManagerPage.addProductBtn.click();
         wait.until(ExpectedConditions.visibilityOf(productPage.productNameTF));
         product = productPage.createNewProduct();
+        wait.until(ExpectedConditions.elementToBeClickable(productPage.header.goToShopMainPageLink));
+        TestHelper.ClickOnElementUsingJS(driver, productPage.header.goToShopMainPageLink);
+        //wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("prestashop-automation"));
+        driver.switchTo().frame("prestashop-automation");
+        //System.out.println(driver.getCurrentUrl());
+        wait.until(ExpectedConditions.visibilityOf(shopMainPage.title));
+        shopMainPage.previewAllProductsLink.click();
     }
 }

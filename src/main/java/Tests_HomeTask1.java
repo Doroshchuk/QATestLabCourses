@@ -1,8 +1,8 @@
-import jdk.nashorn.internal.objects.annotations.Function;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import pages.*;
-import pages.userPageComponents.SideBar;
+import pages.admin.AuthorizationPage;
+import pages.admin.MainUserPage;
+import pages.admin.userPageComponents.SideBar;
 
 public class Tests_HomeTask1 extends BaseTest {
     private AuthorizationPage authorizationPage;

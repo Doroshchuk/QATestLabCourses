@@ -1,12 +1,8 @@
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-import pages.AuthorizationPage;
-import pages.MainUserPage;
 
 public class BaseTest {
     protected EventFiringWebDriver driver;
@@ -23,7 +19,7 @@ public class BaseTest {
         driver.register(logger);
         driver.get(baseUrl);
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, 20);
+        wait = new WebDriverWait(driver, 30);
     }
 
     @AfterTest(alwaysRun = true)

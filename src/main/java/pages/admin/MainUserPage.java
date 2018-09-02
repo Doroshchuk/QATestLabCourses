@@ -1,10 +1,9 @@
-package pages;
+package pages.admin;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.userPageComponents.SideBar;
 
 public class MainUserPage extends BasePage{
     @FindBy(xpath = "//span[@class='employee_avatar_small']//img")

@@ -1,4 +1,4 @@
-package pages;
+package pages.admin.userPageComponents;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 public class Header {
     private WebDriver driver;
 
-    @FindBy(css = "logo pull-left']")
-    public WebElement goToMainPageLogo;
+    @FindBy(css = "logo pull-left")
+    public WebElement goToAdminPanelLogo;
+
+    @FindBy(xpath = "//a[@class='link']")//div[@class='shop-list'][a[@class='link']]
+    public WebElement goToShopMainPageLink;
 
     @FindBy(css = "input[id='bo_query']")
     public WebElement searchBoxTF;

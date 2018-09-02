@@ -1,4 +1,4 @@
-package pages.userPageComponents;
+package pages.admin.userPageComponents;
 
 import testHelper.TestHelper;
 import org.openqa.selenium.By;

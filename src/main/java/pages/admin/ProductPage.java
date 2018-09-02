@@ -1,4 +1,4 @@
-package pages;
+package pages.admin;
 
 import models.Product;
 import org.openqa.selenium.WebDriver;

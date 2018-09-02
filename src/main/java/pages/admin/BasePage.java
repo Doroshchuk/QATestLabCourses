@@ -1,8 +1,9 @@
-package pages;
+package pages.admin;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.userPageComponents.SideBar;
+import pages.admin.userPageComponents.Header;
+import pages.admin.userPageComponents.SideBar;
 
 public class BasePage {
     protected WebDriver driver;
