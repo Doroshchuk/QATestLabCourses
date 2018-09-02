@@ -40,7 +40,7 @@ public class Tests_HomeTask2 extends BaseTest {
     @Test(priority = 1, dependsOnMethods = {"testCreatingCategory"})
     public void testFindingCategory() {
         wait.until(ExpectedConditions.textToBePresentInElement(categoriesManagerPage.title, "категории"));
-        categoriesManagerPage.findCategoryByName("TestCategoryNewVersion4");
+        categoriesManagerPage.header.findByName("TestCategoryNewVersion4");
         wait.until(ExpectedConditions.visibilityOf(searchResultPage.resultTitle));
         Assert.assertEquals(searchResultPage.resultTitle.getText(), "Запросу \"TestCategoryNewVersion4\" соответствует 1 результат.");
     }

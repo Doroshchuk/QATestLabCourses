@@ -6,9 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CategoryPage {
-    private WebDriver driver;
-
+public class CategoryPage extends BasePage{
     @FindBy(css = "input[name='name_1']")
     public WebElement categoryNameTF;
 
@@ -16,7 +14,7 @@ public class CategoryPage {
     public WebElement saveBtn;
 
     public CategoryPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 

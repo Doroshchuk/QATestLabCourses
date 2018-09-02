@@ -5,8 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProductsManagerPage {
-    private WebDriver driver;
+public class ProductsManagerPage extends BasePage{
 
     @FindBy(id = "page-header-desc-configuration-add")
     public WebElement addProductBtn;
@@ -15,7 +14,7 @@ public class ProductsManagerPage {
     public WebElement title;
 
     public ProductsManagerPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 }

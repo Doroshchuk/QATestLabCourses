@@ -6,19 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import testHelper.TestHelper;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.Locale;
 import java.util.Random;
 
-public class ProductPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
-
+public class ProductPage extends BasePage{
     @FindBy(id = "form_step1_name_1")
     public WebElement productNameTF;
 
@@ -44,8 +39,7 @@ public class ProductPage {
     public WebElement saveProductBtn;
 
     public ProductPage(WebDriver driver){
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 20);
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -87,8 +81,6 @@ public class ProductPage {
 
     private double getRandomProductPrice(){
         double result = 0.1 + (100 - 0.1) * new Random().nextDouble();
-//        DecimalFormat f = new DecimalFormat("##.00");
-//        String formattedResult = f.format(result);
         BigDecimal bd = new BigDecimal(result).setScale(2, RoundingMode.HALF_EVEN);
         return bd.doubleValue();
     }

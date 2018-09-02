@@ -6,8 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CategoriesManagerPage {
-    private WebDriver driver;
+public class CategoriesManagerPage extends BasePage{
 
     @FindBy(css = "a[id='page-header-desc-category-new_category']")
     public WebElement addCategoryBtn;
@@ -18,16 +17,8 @@ public class CategoriesManagerPage {
     @FindBy(css = "div[class='alert alert-success']")
     public WebElement messageBlock;
 
-    @FindBy(css = "input[id='bo_query']")
-    public WebElement searchBoxTF;
-
     public CategoriesManagerPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
-    }
-
-    public void findCategoryByName(String name){
-        searchBoxTF.sendKeys(name);
-        searchBoxTF.submit();
     }
 }
