@@ -11,10 +11,6 @@ import pages.admin.MainUserPage;
 import pages.admin.ProductPage;
 import pages.admin.ProductsManagerPage;
 import pages.shop.ShopMainPage;
-import testHelper.TestHelper;
-
-import java.util.Iterator;
-import java.util.Set;
 
 public class Tests_HomeTask3 extends BaseTest{
     private AuthorizationPage authorizationPage;
@@ -40,21 +36,15 @@ public class Tests_HomeTask3 extends BaseTest{
 
     @Test(priority = 0)
     public void testCreatingCategory() {
-        wait.until(ExpectedConditions.elementToBeClickable(authorizationPage.logInBtn));
         authorizationPage.signInToAccount("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
-        wait.until(ExpectedConditions.visibilityOf(userPage.userImg));
-//        userPage.sideBar.GetSideBarItem("subtab-AdminCatalog").hoverMouseOverItem();
-//        userPage.sideBar.GetSideBarItem("subtab-AdminCatalog").chooseSubMenuItemById("subtab-AdminProducts");
-//        wait.until(ExpectedConditions.elementToBeClickable(productsManagerPage.addProductBtn));
-//        productsManagerPage.addProductBtn.click();
-//        wait.until(ExpectedConditions.visibilityOf(productPage.productNameTF));
-//        product = productPage.createNewProduct();
-//        wait.until(ExpectedConditions.elementToBeClickable(productPage.header.goToShopMainPageLink));
-//        TestHelper.ClickOnElementUsingJS(driver, productPage.header.goToShopMainPageLink);
-        //wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("prestashop-automation"));
-//        driver.switchTo().frame("prestashop-automation");
-//        //System.out.println(driver.getCurrentUrl());
-//        wait.until(ExpectedConditions.visibilityOf(shopMainPage.title));
-//        shopMainPage.previewAllProductsLink.click();
+        userPage.hoverMouseAboveSideBarItemByName("subtab-AdminCatalog");
+        userPage.chooseSubmenuItem("subtab-AdminCatalog", "subtab-AdminProducts");
+        productsManagerPage.clickToCreateCategory();
+        product = productPage.createNewProduct();
+        productPage.goToShop();
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("prestashop-automation"));
+        driver.switchTo().frame("prestashop-automation");
+        wait.until(ExpectedConditions.visibilityOf(shopMainPage.title));
+        shopMainPage.previewAllProductsLink.click();
     }
 }

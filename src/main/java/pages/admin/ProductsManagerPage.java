@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductsManagerPage extends BasePage{
 
@@ -16,5 +17,10 @@ public class ProductsManagerPage extends BasePage{
     public ProductsManagerPage(WebDriver driver){
         super(driver);
         PageFactory.initElements(driver, this);
+    }
+
+    public void clickToCreateCategory(){
+        wait.until(ExpectedConditions.elementToBeClickable(addProductBtn));
+        addProductBtn.click();
     }
 }

@@ -44,6 +44,7 @@ public class ProductPage extends BasePage{
     }
 
     public Product createNewProduct(){
+        wait.until(ExpectedConditions.visibilityOf(productNameTF));
         Product product = new Product();
         product.setName(TestHelper.getRandomString(10));
         product.setPrice(TestHelper.getRandomDoubleNumber());

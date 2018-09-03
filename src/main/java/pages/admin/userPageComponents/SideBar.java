@@ -1,5 +1,6 @@
 package pages.admin.userPageComponents;
 
+import javafx.geometry.Side;
 import org.openqa.selenium.WebDriver;
 import java.util.*;
 
@@ -33,13 +34,7 @@ public class SideBar {
     }
 
     public SideBarItem GetSideBarItem(String id){
-        SideBarItem item = null;
-        for (SideBarItem component: items){
-            if (component.getItem().getAttribute("id").equals(id)){
-                item = component;
-                break;
-            }
-        }
+        SideBarItem item = items.stream().filter(x -> Objects.equals(x.getId(), id)).findFirst().orElse(null);
         return item;
     }
 }
