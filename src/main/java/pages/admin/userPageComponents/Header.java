@@ -11,7 +11,7 @@ public class Header {
     @FindBy(css = "logo pull-left")
     public WebElement goToAdminPanelLogo;
 
-    @FindBy(xpath = "//a[@class='link']")//div[@class='shop-list'][a[@class='link']]
+    @FindBy(xpath = "//a[@class='link']")
     public WebElement goToShopMainPageLink;
 
     @FindBy(css = "input[id='bo_query']")

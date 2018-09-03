@@ -2,6 +2,7 @@ import models.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -42,18 +43,18 @@ public class Tests_HomeTask3 extends BaseTest{
         wait.until(ExpectedConditions.elementToBeClickable(authorizationPage.logInBtn));
         authorizationPage.signInToAccount("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
         wait.until(ExpectedConditions.visibilityOf(userPage.userImg));
-        userPage.sideBar.GetSideBarItem("subtab-AdminCatalog").hoverMouseOverItem();
-        userPage.sideBar.GetSideBarItem("subtab-AdminCatalog").chooseSubMenuItemById("subtab-AdminProducts");
-        wait.until(ExpectedConditions.elementToBeClickable(productsManagerPage.addProductBtn));
-        productsManagerPage.addProductBtn.click();
-        wait.until(ExpectedConditions.visibilityOf(productPage.productNameTF));
-        product = productPage.createNewProduct();
-        wait.until(ExpectedConditions.elementToBeClickable(productPage.header.goToShopMainPageLink));
-        TestHelper.ClickOnElementUsingJS(driver, productPage.header.goToShopMainPageLink);
+//        userPage.sideBar.GetSideBarItem("subtab-AdminCatalog").hoverMouseOverItem();
+//        userPage.sideBar.GetSideBarItem("subtab-AdminCatalog").chooseSubMenuItemById("subtab-AdminProducts");
+//        wait.until(ExpectedConditions.elementToBeClickable(productsManagerPage.addProductBtn));
+//        productsManagerPage.addProductBtn.click();
+//        wait.until(ExpectedConditions.visibilityOf(productPage.productNameTF));
+//        product = productPage.createNewProduct();
+//        wait.until(ExpectedConditions.elementToBeClickable(productPage.header.goToShopMainPageLink));
+//        TestHelper.ClickOnElementUsingJS(driver, productPage.header.goToShopMainPageLink);
         //wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("prestashop-automation"));
-        driver.switchTo().frame("prestashop-automation");
-        //System.out.println(driver.getCurrentUrl());
-        wait.until(ExpectedConditions.visibilityOf(shopMainPage.title));
-        shopMainPage.previewAllProductsLink.click();
+//        driver.switchTo().frame("prestashop-automation");
+//        //System.out.println(driver.getCurrentUrl());
+//        wait.until(ExpectedConditions.visibilityOf(shopMainPage.title));
+//        shopMainPage.previewAllProductsLink.click();
     }
 }

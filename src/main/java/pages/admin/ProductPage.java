@@ -45,9 +45,9 @@ public class ProductPage extends BasePage{
 
     public Product createNewProduct(){
         Product product = new Product();
-        product.setName(getRandomProductName(10));
-        product.setPrice(getRandomProductPrice());
-        product.setQuantity(getRandomProductQuantity());
+        product.setName(TestHelper.getRandomString(10));
+        product.setPrice(TestHelper.getRandomDoubleNumber());
+        product.setQuantity(TestHelper.getRandomIntNumber());
         productNameTF.sendKeys(product.getName());
         TestHelper.insertValueIntoTF(productQuantityTF, String.valueOf(product.getQuantity()));
         TestHelper.insertValueIntoTF(productPriceWithoutNSD_TF, String.valueOf(product.getPrice()));
@@ -58,30 +58,5 @@ public class ProductPage extends BasePage{
         wait.until(ExpectedConditions.visibilityOf(networkMessageBlock));
         closeNetworkMessageBtn.click();
         return product;
-    }
-
-    private String getRandomProductName(int length){
-        Random random = new Random();
-        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String lower = upper.toLowerCase(Locale.ROOT);
-        char[] symbols = (upper + lower).toCharArray();
-        char[] buf = new char[length];
-        return nextString(buf, random, symbols);
-    }
-
-    public String nextString(char[] buf, Random random, char[] symbols) {
-        for (int idx = 0; idx < buf.length; ++idx)
-            buf[idx] = symbols[random.nextInt(symbols.length)];
-        return new String(buf);
-    }
-
-    private int getRandomProductQuantity(){
-        return (int)(Math.random() * 100 + 1);
-    }
-
-    private double getRandomProductPrice(){
-        double result = 0.1 + (100 - 0.1) * new Random().nextDouble();
-        BigDecimal bd = new BigDecimal(result).setScale(2, RoundingMode.HALF_EVEN);
-        return bd.doubleValue();
     }
 }

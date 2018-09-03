@@ -32,7 +32,7 @@ public class Tests_HomeTask1 extends BaseTest {
     public void testSideBarItem(String id) throws InterruptedException {
         authorizationPage.signInToAccount("webinar.test@gmail.com", "Xcg7299bnSmMuRLp9ITw");
         sleep(300);
-        boolean result = userPage.sideBar.GetSideBarItem(id).checkItemIntoSideBar();
+        boolean result = userPage.checkItemIntoSideBar(id);
         Assert.assertTrue(result);
     }
 

@@ -9,7 +9,7 @@ public class MainUserPage extends BasePage{
     @FindBy(xpath = "//span[@class='employee_avatar_small']//img")
     public WebElement userImg;
 
-    @FindBy(xpath = "//ul[@id='header_employee_box']//li//a[@id='header_logout']")
+    @FindBy(id = "header_logout")
     public WebElement logOutLink;
 
     public MainUserPage(WebDriver driver){
@@ -20,5 +20,9 @@ public class MainUserPage extends BasePage{
     public void LogOut(){
         userImg.click();
         logOutLink.click();
+    }
+
+    public boolean checkItemIntoSideBar(String id){
+        return sideBar.GetSideBarItem(id).checkItemIntoSideBar();
     }
 }
