@@ -4,6 +4,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import java.util.ArrayList;
+
 public class BaseTest {
     protected EventFiringWebDriver driver;
     protected WebDriverWait wait;
@@ -26,5 +28,11 @@ public class BaseTest {
     public void close() {
         driver.close();
         driver.quit();
+    }
+
+    protected void goToNewWindow(){
+        ArrayList<String> winList = new ArrayList<>(driver.getWindowHandles());
+        String newWindowName = winList.get(winList.size() - 1);
+        driver.switchTo().window(newWindowName);
     }
 }

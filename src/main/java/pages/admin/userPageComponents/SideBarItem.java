@@ -1,5 +1,7 @@
 package pages.admin.userPageComponents;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import testHelper.TestHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SideBarItem {
     private WebDriver driver;
+    protected WebDriverWait wait;
     public String id;
 
     public WebElement getItem(){
@@ -29,6 +32,7 @@ public class SideBarItem {
 
     public SideBarItem(WebDriver driver, String id){
         this.driver = driver;
+        wait = new WebDriverWait(driver, 20);
         this.id = id;
         PageFactory.initElements(driver, this);
     }
@@ -43,6 +47,7 @@ public class SideBarItem {
 
     public void hoverMouseOverItem(){
         Actions action = new Actions(driver);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
         action.moveToElement(getItem()).build().perform();
     }
 
