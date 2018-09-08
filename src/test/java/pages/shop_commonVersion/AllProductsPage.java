@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import testHelper.TestHelper;
 
 import java.util.List;
 
@@ -24,8 +25,12 @@ public class AllProductsPage extends Header{
         return products.size();
     }
 
-    public void viewProduct(){
-        WebElement speedSearchBtn = products.get(0).findElement(By.tagName("a"));
+    public void viewProduct(int index){
+        WebElement speedSearchBtn = products.get(index).findElement(By.tagName("a"));
         speedSearchBtn.click();
+    }
+
+    public void viewRandomProduct(){
+        viewProduct(TestHelper.getRandomIntNumber(0, products.size() - 1));
     }
 }

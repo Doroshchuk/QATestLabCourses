@@ -10,7 +10,6 @@ import pages.admin.ProductsManagerPage;
 import pages.shop_commonVersion.AllProductsPage;
 import pages.shop_commonVersion.ShopMainPage;
 import pages.shop_commonVersion.ShopProductPage;
-import pages.shop_desktopVersion.ShopMainPage_DV;
 
 public class Tests_HomeTask3 extends BaseTest{
     private AuthorizationPage authorizationPage;
@@ -31,7 +30,7 @@ public class Tests_HomeTask3 extends BaseTest{
         shopMainPage = new ShopMainPage(driver);
         allProductsPage = new AllProductsPage(driver);
         shopProductPage = new ShopProductPage(driver);
-}
+    }
 
     @DataProvider(name = "AuthorizationData")
     public static Object[] credentials() {
@@ -54,7 +53,7 @@ public class Tests_HomeTask3 extends BaseTest{
 
     @Test(priority = 1, dependsOnMethods = "testCreatingProduct")
     public void testProductName() {
-        allProductsPage.viewProduct();
+        allProductsPage.viewProduct(0);
         Assert.assertTrue(shopProductPage.getProductName().equals(product.getName().toUpperCase())
             && shopProductPage.getProductQuantity() == product.getQuantity()
             && shopProductPage.getProductPrice() == product.getPrice());

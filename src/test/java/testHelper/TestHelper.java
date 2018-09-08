@@ -39,6 +39,10 @@ public class TestHelper {
         return (int)(Math.random() * 100 + 1);
     }
 
+    public static int getRandomIntNumber(int minRange, int maxRange){
+        return (int)(Math.random() * maxRange + minRange);
+    }
+
     public static double getRandomDoubleNumber(){
         double result = 0.1 + (100 - 0.1) * new Random().nextDouble();
         BigDecimal bd = new BigDecimal(result).setScale(2, RoundingMode.HALF_EVEN);

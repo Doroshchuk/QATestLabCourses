@@ -8,11 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testHelper.TestHelper;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.Locale;
-import java.util.Random;
-
 public class ProductPage extends BasePage{
     @FindBy(id = "form_step1_name_1")
     public WebElement productNameTF;
