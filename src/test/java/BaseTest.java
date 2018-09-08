@@ -1,7 +1,12 @@
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
@@ -9,6 +14,8 @@ import org.testng.annotations.*;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BaseTest {
     protected EventFiringWebDriver driver;
@@ -59,7 +66,32 @@ public class BaseTest {
                 System.setProperty(
                         "webdriver.ie.driver",
                         getResource("/IEDriverServer.exe"));
-                return new InternetExplorerDriver();
+                InternetExplorerOptions optionsIE = new InternetExplorerOptions().
+                        requireWindowFocus().
+                        setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT).
+                        enablePersistentHovering().
+                        destructivelyEnsureCleanSession();
+                optionsIE.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+                optionsIE.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+                return new InternetExplorerDriver(optionsIE);
+            case "headless-chrome":
+                System.setProperty(
+                        "webdriver.chrome.driver",
+                        getResource("/chromedriver.exe")
+                );
+                ChromeOptions optionsChrome = new ChromeOptions();
+                optionsChrome.addArguments("headless");
+                optionsChrome.addArguments("window-size=800x600");
+                return new ChromeDriver(optionsChrome);
+            case "mobile":
+                System.setProperty(
+                        "webdriver.chrome.driver",
+                        getResource("/chromedriver.exe"));
+                Map<String, String> mobileEmulation = new HashMap<>();
+                mobileEmulation.put("deviceName", "iphone 7");
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+                return new ChromeDriver(chromeOptions);
             case "chrome":
             default:
                 System.setProperty(
