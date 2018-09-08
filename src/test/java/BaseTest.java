@@ -6,7 +6,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
@@ -16,21 +15,26 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected EventFiringWebDriver driver;
     protected WebDriverWait wait;
-    private String baseUrl = "http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/";
+    //private String baseUrl = "http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/";
+    private String baseUrl = "http://prestashop-automation.qatestlab.com.ua/ru/";
     protected WebDriverLogger logger;
+    protected String browserType;
 
     @BeforeClass
     @Parameters("browser")
     public void setUp(@Optional("chrome") String browser) {
+        browserType = browser;
         driver = new EventFiringWebDriver(getDriver(browser));
         logger = new WebDriverLogger();
         driver.register(logger);
         driver.get(baseUrl);
         driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 30);
     }
 

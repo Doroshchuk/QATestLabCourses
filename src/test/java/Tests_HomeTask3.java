@@ -1,7 +1,4 @@
 import models.Product;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -10,11 +7,10 @@ import pages.admin.AuthorizationPage;
 import pages.admin.MainUserPage;
 import pages.admin.ProductPage;
 import pages.admin.ProductsManagerPage;
-import pages.shop.AllProductsPage;
-import pages.shop.ShopMainPage;
-import pages.shop.ShopProductPage;
-
-import java.util.ArrayList;
+import pages.shop_commonVersion.AllProductsPage;
+import pages.shop_commonVersion.ShopMainPage;
+import pages.shop_commonVersion.ShopProductPage;
+import pages.shop_desktopVersion.ShopMainPage_DV;
 
 public class Tests_HomeTask3 extends BaseTest{
     private AuthorizationPage authorizationPage;

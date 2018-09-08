@@ -1,4 +1,4 @@
-package pages.shop;
+package pages.shop_commonVersion;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +17,9 @@ public class Header {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitSearch;
 
+    @FindBy(xpath = "//a[img[@class='logo img-responsive']]//parent::div")
+    public WebElement logoBlock;
+
     public Header(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, 20);
@@ -27,5 +30,9 @@ public class Header {
         wait.until(ExpectedConditions.elementToBeClickable(searchTF));
         searchTF.sendKeys(name);
         submitSearch.click();
+    }
+
+    public String GetLogoBlockId(){
+        return logoBlock.getAttribute("id");
     }
 }

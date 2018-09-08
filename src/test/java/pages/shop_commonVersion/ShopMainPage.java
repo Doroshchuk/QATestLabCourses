@@ -1,16 +1,12 @@
-package pages.shop;
+package pages.shop_commonVersion;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ShopMainPage{
-    private WebDriver driver;
-    private WebDriverWait wait;
-
+public class ShopMainPage extends Header{
     public static String url = "http://prestashop-automation.qatestlab.com.ua/ru/";
 
     @FindBy(xpath = "//h1[@class='h1 products-section-title text-uppercase ']")
@@ -20,8 +16,7 @@ public class ShopMainPage{
     private WebElement previewAllProductsLink;
 
     public ShopMainPage(WebDriver driver){
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 20);
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
