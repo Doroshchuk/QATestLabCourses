@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.shop.customerPersonalInformationPages.AddressPersonalInformationForm;
 import pages.shop.customerPersonalInformationPages.DeliveryInformationForm;
 import pages.shop.customerPersonalInformationPages.MainPersonalInformationForm;
+import pages.shop.customerPersonalInformationPages.PaymentForm;
 import testHelper.TestHelper;
 
 public class CustomerPersonalInformationPage {
@@ -17,6 +18,7 @@ public class CustomerPersonalInformationPage {
     private MainPersonalInformationForm mainPersonalInformationForm;
     private AddressPersonalInformationForm addressPersonalInformationForm;
     private DeliveryInformationForm deliveryInformationForm;
+    private PaymentForm paymentForm;
 
     public CustomerPersonalInformationPage(WebDriver driver){
         this.driver = driver;
@@ -24,6 +26,7 @@ public class CustomerPersonalInformationPage {
         mainPersonalInformationForm = new MainPersonalInformationForm(driver);
         addressPersonalInformationForm = new AddressPersonalInformationForm(driver);
         deliveryInformationForm = new DeliveryInformationForm(driver);
+        paymentForm = new PaymentForm(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -31,5 +34,6 @@ public class CustomerPersonalInformationPage {
         mainPersonalInformationForm.fillInPersonalInformationWithRandomData();
         addressPersonalInformationForm.fillInAddress(city, address, postcode);
         deliveryInformationForm.chooseTypeOfDelivery();
+        paymentForm.choosePaymentType();
     }
 }
