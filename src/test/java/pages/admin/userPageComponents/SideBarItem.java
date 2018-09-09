@@ -52,7 +52,7 @@ public class SideBarItem {
     }
 
     public void chooseSubMenuItemById(String id){
-        TestHelper.ClickOnElementUsingJS(driver, getSubMenuItem(id));
+        TestHelper.clickOnElementUsingJS(driver, getSubMenuItem(id));
     }
 
     public boolean checkItemIntoSideBar(){

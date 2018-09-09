@@ -36,7 +36,7 @@ public class ShopProductPage extends Header{
     public int getProductQuantity(){
         wait.until(ExpectedConditions.elementToBeClickable(getDetailAboutProductLink));
         getDetailAboutProductLink.click();
-        //wait.until(ExpectedConditions.visibilityOf(productQuantityLbl));
+        wait.until(ExpectedConditions.visibilityOf(productQuantityLbl));
         return Integer.parseInt(productQuantityLbl.getText().split(" ")[0]);
     }
 

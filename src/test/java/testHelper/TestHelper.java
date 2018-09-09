@@ -3,6 +3,7 @@ package testHelper;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -10,9 +11,14 @@ import java.util.Locale;
 import java.util.Random;
 
 public class TestHelper {
-    public static void ClickOnElementUsingJS(WebDriver driver, WebElement element){
+    public static void clickOnElementUsingJS(WebDriver driver, WebElement element){
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);
+    }
+
+    public static void moveToElement(WebDriver driver, WebElement element){
+        Actions action = new Actions(driver);
+        action.moveToElement(element).perform();
     }
 
     public static void insertValueIntoTF(WebElement field, String value){

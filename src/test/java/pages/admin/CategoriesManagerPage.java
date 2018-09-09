@@ -39,6 +39,6 @@ public class CategoriesManagerPage extends BasePage{
 
     public void clickOnBtnToCreateCategory(){
         wait.until(ExpectedConditions.visibilityOf(addCategoryBtn));
-        TestHelper.ClickOnElementUsingJS(driver, addCategoryBtn);
+        TestHelper.clickOnElementUsingJS(driver, addCategoryBtn);
     }
 }

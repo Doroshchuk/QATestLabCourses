@@ -46,6 +46,6 @@ public class Tests_HomeTask4 extends BaseTest{
     @Test(priority = 2, dependsOnMethods = "testAddingProductToBasket")
     public void testCreatingOrder() {
         basketPage.goToOrder();
-        customerPersonalInformationPage.fillInPersonalInformationWithRandomData();
+        customerPersonalInformationPage.fillInMainPersonalInformation("Кадетский Гай 10", "03048", "Киев");
     }
 }

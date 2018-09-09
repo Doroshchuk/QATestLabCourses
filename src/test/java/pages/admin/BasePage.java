@@ -31,6 +31,6 @@ public class BasePage {
 
     public void goToShop(){
         wait.until(ExpectedConditions.elementToBeClickable(header.goToShopMainPageLink));
-        TestHelper.ClickOnElementUsingJS(driver, header.goToShopMainPageLink);
+        TestHelper.clickOnElementUsingJS(driver, header.goToShopMainPageLink);
     }
 }
