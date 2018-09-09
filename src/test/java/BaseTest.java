@@ -21,7 +21,7 @@ public class BaseTest {
     protected EventFiringWebDriver driver;
     protected WebDriverWait wait;
     //private String baseUrl = "http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/";
-    private String baseUrl = "http://prestashop-automation.qatestlab.com.ua/ru/";
+    protected String baseUrl = "http://prestashop-automation.qatestlab.com.ua/ru/";
     protected WebDriverLogger logger;
     protected String browserType;
 
