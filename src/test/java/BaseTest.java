@@ -6,11 +6,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +30,7 @@ public class BaseTest {
 
     @BeforeClass
     @Parameters("browser")
-    public void setUp(@Optional("chrome") String browser) {
+    public void setUp(@Optional("remote-mobile_chrome") String browser) {
         browserType = browser;
         driver = new EventFiringWebDriver(getDriver(browser));
         logger = new WebDriverLogger();
@@ -87,6 +90,17 @@ public class BaseTest {
                 optionsChrome.addArguments("headless");
                 optionsChrome.addArguments("window-size=800x600");
                 return new ChromeDriver(optionsChrome);
+            case "remote-mobile_chrome":
+                Map<String, String> mobileRemoteEmulation = new HashMap<>();
+                mobileRemoteEmulation.put("deviceName", "iphone 7");
+                ChromeOptions optionsRemote = new ChromeOptions();
+                optionsRemote.setExperimentalOption("mobileEmulation", mobileRemoteEmulation);
+                try{
+                    return new RemoteWebDriver(new URL("http://192.168.56.1:4444/wd/hub"), optionsRemote);
+                } catch(MalformedURLException e){
+                    e.printStackTrace();
+                }
+                return null;
             case "mobile":
                 System.setProperty(
                         "webdriver.chrome.driver",
