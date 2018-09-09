@@ -7,9 +7,9 @@ import pages.admin.AuthorizationPage;
 import pages.admin.MainUserPage;
 import pages.admin.ProductPage;
 import pages.admin.ProductsManagerPage;
-import pages.shop_commonVersion.AllProductsPage;
-import pages.shop_commonVersion.ShopMainPage;
-import pages.shop_commonVersion.ShopProductPage;
+import pages.shop.AllProductsPage;
+import pages.shop.ShopMainPage;
+import pages.shop.ShopProductPage;
 
 public class Tests_HomeTask3 extends BaseTest{
     private AuthorizationPage authorizationPage;
@@ -52,7 +52,7 @@ public class Tests_HomeTask3 extends BaseTest{
     }
 
     @Test(priority = 1, dependsOnMethods = "testCreatingProduct")
-    public void testProductName() {
+    public void testProductInformation() {
         allProductsPage.viewProduct(0);
         Assert.assertTrue(shopProductPage.getProductName().equals(product.getName().toUpperCase())
             && shopProductPage.getProductQuantity() == product.getQuantity()

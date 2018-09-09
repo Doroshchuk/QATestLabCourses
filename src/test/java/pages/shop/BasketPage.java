@@ -1,4 +1,4 @@
-package pages.shop_commonVersion;
+package pages.shop;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,10 @@ public class BasketPage extends Header{
     private WebElement productPriceLbl;
 
     @FindBy(name = "product-quantity-spin")
-    private WebElement productQuantityTF;
+    private WebElement productOrderedQuantityTF;
+
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    private WebElement orderingBtn;
 
     public BasketPage(WebDriver driver){
         super(driver);
@@ -27,13 +30,18 @@ public class BasketPage extends Header{
     }
 
     public int getProductOrderedQuantity(){
-        wait.until(ExpectedConditions.elementToBeClickable(productQuantityTF));
-        return Integer.parseInt(productQuantityTF.getAttribute("value"));
+        wait.until(ExpectedConditions.elementToBeClickable(productOrderedQuantityTF));
+        return Integer.parseInt(productOrderedQuantityTF.getAttribute("value"));
     }
 
     public double getProductPrice(){
         wait.until(ExpectedConditions.visibilityOf(productPriceLbl));
         String value = productPriceLbl.getText().split(" ")[0];
         return Double.valueOf(value.replace(',', '.'));
+    }
+
+    public void goToOrder(){
+        wait.until(ExpectedConditions.elementToBeClickable(orderingBtn));
+        orderingBtn.click();
     }
 }

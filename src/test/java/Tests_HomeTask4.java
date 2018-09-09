@@ -1,9 +1,8 @@
 import models.Product;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.shop_commonVersion.*;
+import pages.shop.*;
 
 public class Tests_HomeTask4 extends BaseTest{
     private ShopMainPage shopMainPage;
@@ -12,6 +11,7 @@ public class Tests_HomeTask4 extends BaseTest{
     private ProductInBasketPopUp productInBasketPopUp;
     private Product product;
     private BasketPage basketPage;
+    private CustomerPersonalInformationPage customerPersonalInformationPage;
 
     @BeforeClass
     public void initialize(){
@@ -20,6 +20,7 @@ public class Tests_HomeTask4 extends BaseTest{
         shopProductPage = new ShopProductPage(driver);
         productInBasketPopUp = new ProductInBasketPopUp(driver);
         basketPage = new BasketPage(driver);
+        customerPersonalInformationPage = new CustomerPersonalInformationPage(driver);
     }
 
     @Test(priority = 0)
@@ -32,13 +33,19 @@ public class Tests_HomeTask4 extends BaseTest{
     }
 
     @Test(priority = 1)
-    public void testCreatingOrder() {
+    public void testAddingProductToBasket() {
         shopMainPage.clickToPreviewAllProducts();
         allProductsPage.viewRandomProduct();
         product = shopProductPage.addProductToBasket();
         productInBasketPopUp.goToOrder();
         Assert.assertTrue(basketPage.getProductName().toUpperCase().equals(product.getName())
-                && basketPage.getProductOrderedQuantity() == product.getQuantity()
+                && basketPage.getProductOrderedQuantity() == 1
                 && basketPage.getProductPrice() == product.getPrice());
+    }
+
+    @Test(priority = 2, dependsOnMethods = "testAddingProductToBasket")
+    public void testCreatingOrder() {
+        basketPage.goToOrder();
+        customerPersonalInformationPage.fillInPersonalInformationWithRandomData();
     }
 }

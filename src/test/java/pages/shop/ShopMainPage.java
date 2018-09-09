@@ -1,4 +1,4 @@
-package pages.shop_commonVersion;
+package pages.shop;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
